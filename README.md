@@ -13,8 +13,7 @@
 ## Installation 🚀
 
 ```bash
-git clone https://github.com/yourusername/zsh-config.git ~/.zsh-config
-cd ~/.zsh-config
+git clone https://github.com/futuretonight/Ubuntu-Terminal.git
 ./install.sh
 ```
 
