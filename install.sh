@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 # ZSH Configuration Installer
-
+# Install Git hooks
+echo -e "${CYAN}Installing Git hooks...${NC}"
+HOOKS_DIR=".git/hooks"
+mkdir -p "$HOOKS_DIR"
+cp .githooks/post-checkout "$HOOKS_DIR/post-checkout"
+chmod +x "$HOOKS_DIR/post-checkout"
+echo -e "${GREEN}✅ Git hooks installed!${NC}"
 # Colors
 RED='\033[0;31m'
 GREEN='\033[0;32m'
