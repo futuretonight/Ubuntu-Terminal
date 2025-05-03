@@ -8,10 +8,19 @@ YELLOW='\033[1;33m'
 CYAN='\033[0;36m'
 NC='\033[0m'
 
-# Check if running as root
+# Warn if running as root
 if [[ $EUID -eq 0 ]]; then
-    echo -e "${RED}Error: Do not run this script as root!${NC}"
-    exit 1
+    echo -e "${YELLOW}⚠️  Warning: It's not recommended to run this script as root.${NC}"
+    read -p "Do you want to continue anyway? (y/N): " CONTINUE
+    case "$CONTINUE" in
+        [yY][eE][sS]|[yY])
+            echo -e "${CYAN}Proceeding as root...${NC}"
+            ;;
+        *)
+            echo -e "${RED}Exiting.${NC}"
+            exit 1
+            ;;
+    esac
 fi
 
 echo -e "${CYAN}🚀 Starting ZSH Configuration Setup${NC}"
